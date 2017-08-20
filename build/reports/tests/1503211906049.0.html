@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+            <title>Error: 500 Internal Server Error</title>
+            <style type="text/css">
+              html {background-color: #eee; font-family: sans;}
+              body {background-color: #fff; border: 1px solid #ddd;
+                    padding: 15px; margin: 15px;}
+              pre {background-color: #eee; border: 1px solid #ddd; padding: 5px;}
+            </style>
+        </head>
+        <body>
+            <h1>Error: 500 Internal Server Error</h1>
+            <p>Sorry, the requested URL <tt>'http://35.192.212.141:8086/login'</tt>
+               caused an error:</p>
+            <pre>Internal Server Error</pre>
+              <h2>Exception:</h2>
+              <pre>OperationalError('(pymysql.err.OperationalError) (2006, "MySQL server has gone away (error(32, \'Broken pipe\'))")',)</pre>
+              <h2>Traceback:</h2>
+              <pre>Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/bottle.py", line 862, in _handle
+    return route.call(**args)
+  File "/usr/local/lib/python2.7/dist-packages/bottle.py", line 1740, in wrapper
+    rv = callback(*a, **ka)
+  File "/home/root/controllers.py", line 41, in login
+    aaa.login(username, password, success_redirect=main_page, fail_redirect=login_page)
+  File "/usr/local/lib/python2.7/dist-packages/cork/cork.py", line 119, in login
+    if username in self._store.users:
+  File "/usr/local/lib/python2.7/dist-packages/cork/sqlalchemy_backend.py", line 59, in __contains__
+    row = self._engine.execute(query).fetchone()
+  File "/usr/local/lib/python2.7/dist-packages/sqlalchemy/engine/base.py", line 2064, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/usr/local/lib/python2.7/dist-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/usr/local/lib/python2.7/dist-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/usr/local/lib/python2.7/dist-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/usr/local/lib/python2.7/dist-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/usr/local/lib/python2.7/dist-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/usr/local/lib/python2.7/dist-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/usr/local/lib/python2.7/dist-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/usr/local/lib/python2.7/dist-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python2.7/dist-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python2.7/dist-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 855, in query
+    self._execute_command(COMMAND.COM_QUERY, sql)
+  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 1092, in _execute_command
+    self._write_bytes(packet)
+  File "/usr/local/lib/python2.7/dist-packages/pymysql/connections.py", line 1044, in _write_bytes
+    "MySQL server has gone away (%r)" % (e,))
+OperationalError: (pymysql.err.OperationalError) (2006, "MySQL server has gone away (error(32, 'Broken pipe'))") [SQL: u'SELECT users.username \nFROM users \nWHERE users.username = %(username_1)s'] [parameters: {u'username_1': 'admin'}]
+</pre>
+        
+    
+</body></html>
